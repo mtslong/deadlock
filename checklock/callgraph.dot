@@ -1,0 +1,25 @@
+digraph trace{
+node [shape=box];edge [color=black style=solid];
+
+
+thread1->locka
+locka->unlocka
+unlocka->locka
+locka->lockb
+lockb->unlockb
+unlockb->unlocka
+
+thread2->lockb
+lockb->unlockb
+unlockb->lockb
+lockb->lockc
+lockc->unlockc
+unlockc->unlockb
+
+thread3->lockc
+lockc->unlockc
+unlockc->lockc
+lockc->locka
+locka->unlocka
+unlocka->unlockc
+}
